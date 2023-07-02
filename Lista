@@ -1,4 +1,4 @@
-class ListaInteractiva:
+class Lista:
     def __init__(self):
         self.lista = []
 
@@ -18,14 +18,6 @@ class ListaInteractiva:
         self.lista.remove(elemento)
         print(f"Se eliminó el elemento {elemento} de la lista.")
 
-    def eliminar_por_indice(self, indice):
-        elemento = self.lista.pop(indice)
-        print(f"Se eliminó el elemento {elemento} en la posición {indice}.")
-
-    def buscar_elemento(self, elemento):
-        indice = self.lista.index(elemento)
-        print(f"El elemento {elemento} se encuentra en la posición {indice}.")
-
     def contar_elemento(self, elemento):
         conteo = self.lista.count(elemento)
         print(f"El elemento {elemento} aparece {conteo} veces en la lista.")
@@ -33,10 +25,6 @@ class ListaInteractiva:
     def ordenar_lista(self):
         self.lista.sort()
         print("La lista se ha ordenado de forma ascendente.")
-
-    def invertir_lista(self):
-        self.lista.reverse()
-        print("La lista se ha invertido.")
 
     def copiar_lista(self):
         lista_copia = self.lista.copy()
@@ -50,10 +38,9 @@ class ListaInteractiva:
     def mostrar_lista(self):
         print("Lista actual:", self.lista)
 
-
 # Función principal
 def interactuar_con_lista():
-    lista_interactiva = ListaInteractiva()
+    lista_interactiva = Lista()
 
     while True:
         print("\n--- MENÚ ---")
@@ -61,15 +48,12 @@ def interactuar_con_lista():
         print("2. Agregar varios elementos")
         print("3. Insertar elemento")
         print("4. Eliminar elemento")
-        print("5. Eliminar por índice")
-        print("6. Buscar elemento")
-        print("7. Contar elemento")
-        print("8. Ordenar lista")
-        print("9. Invertir lista")
-        print("10. Copiar lista")
-        print("11. Limpiar lista")
-        print("12. Mostrar lista")
-        print("13. Salir")
+        print("5. Contar elemento")
+        print("6. Ordenar lista")
+        print("7. Copiar lista")
+        print("8. Limpiar lista")
+        print("9. Mostrar lista")
+        print("10. Salir")
 
         opcion = int(input("Seleccione una opción: "))
 
@@ -87,30 +71,20 @@ def interactuar_con_lista():
             elemento = input("Ingrese el elemento a eliminar: ")
             lista_interactiva.eliminar_elemento(elemento)
         elif opcion == 5:
-            indice = int(input("Ingrese el índice a eliminar: "))
-            lista_interactiva.eliminar_por_indice(indice)
-        elif opcion == 6:
-            elemento = input("Ingrese el elemento a buscar: ")
-            lista_interactiva.buscar_elemento(elemento)
-        elif opcion == 7:
             elemento = input("Ingrese el elemento a contar: ")
             lista_interactiva.contar_elemento(elemento)
-        elif opcion == 8:
+        elif opcion == 6:
             lista_interactiva.ordenar_lista()
-        elif opcion == 9:
-            lista_interactiva.invertir_lista()
-        elif opcion == 10:
+        elif opcion == 7:
             lista_copia = lista_interactiva.copiar_lista()
             print("Copia de la lista:", lista_copia)
-        elif opcion == 11:
+        elif opcion == 8:
             lista_interactiva.limpiar_lista()
-        elif opcion == 12:
+        elif opcion == 9:
             lista_interactiva.mostrar_lista()
-        elif opcion == 13:
+        elif opcion == 10:
             print("¡Hasta luego!")
             break
         else:
-            print("Opción inválida. Por favor, seleccione una opción válida.")
-
-
+            print("Opción inválida. Seleccione una opción válida.")
 interactuar_con_lista()
